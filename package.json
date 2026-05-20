@@ -1,0 +1,8 @@
+{
+  "name": "html-qrcode-generator",
+  "private": true,
+  "scripts": {
+    "start": "docker compose up --build --exit-code-from test-runner",
+    "test:e2e": "playwright test --config=playwright.config.js"
+  }
+}

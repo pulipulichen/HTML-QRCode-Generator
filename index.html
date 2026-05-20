@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR碼生成器</title>
-    <script src="js/qrcode.min.js"></script>
+    <title>QR Code Generator</title>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode-generator/qrcode.js"></script>
     <!-- 引入外部CSS檔案 -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/style.css">
     <link rel="manifest" href="manifest.json">
 
     <link rel="apple-touch-icon" sizes="57x57" href="assets/favicon/generator/apple-icon-57x57.png">
@@ -28,27 +28,35 @@
 </head>
 <body>
     <div class="container">
-        <h1>🎯 QR碼生成器</h1>
+        <div class="language-switcher">
+            <label for="language-select" data-i18n="language.label">Language</label>
+            <select id="language-select" aria-label="Language selector">
+                <option value="en">English</option>
+                <option value="zh-TW">繁體中文</option>
+            </select>
+        </div>
+
+        <h1 data-i18n="app.title">🎯 QR Code Generator</h1>
         
         <div class="input-section">
-            <input type="url" id="urlInput" class="url-input" placeholder="請輸入網址 (例如: https://www.google.com)" />
+            <input type="url" id="urlInput" class="url-input" data-i18n-placeholder="input.placeholder" placeholder="Enter a URL (e.g. https://www.google.com)" />
         </div>
         
         <div class="qrcode-section">
             <div id="qrcode"></div>
-            <div id="downloadHint" class="download-hint">點擊QR碼即可下載</div>
+            <div id="downloadHint" class="download-hint" data-i18n="download.hint">Click the QR code to download</div>
         </div>
         
         <div class="history-section">
-            <h3 class="history-title">📋 網址歷史</h3>
+            <h3 class="history-title" data-i18n="history.title">📋 URL History</h3>
             <div id="historyList" class="history-list">
-                <div class="empty-history">尚無歷史記錄</div>
+                <div class="empty-history" data-i18n="history.empty">No history records yet</div>
             </div>
-            <button onclick="clearHistory()" class="clear-history-btn">🗑️ 清空歷史</button>
+            <button id="clearHistoryBtn" class="clear-history-btn" data-i18n="history.clear">🗑️ Clear History</button>
         </div>
     </div>
 
     <!-- 引入外部JavaScript檔案 -->
-    <script src="script.js"></script>
+    <script type="module" src="scripts/script.js"></script>
 </body>
 </html>

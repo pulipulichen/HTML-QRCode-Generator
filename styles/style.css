@@ -188,6 +188,28 @@ h1 {
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
+.language-switcher {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.language-switcher label {
+    color: #555;
+    font-size: 14px;
+}
+
+.language-switcher select {
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #fff;
+    color: #333;
+    padding: 6px 10px;
+    font-size: 14px;
+}
+
 .input-section {
     margin-bottom: 30px;
 }

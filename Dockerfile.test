@@ -1,0 +1,7 @@
+FROM mcr.microsoft.com/playwright:latest
+
+WORKDIR /app
+
+RUN npm install -g http-server @playwright/test
+
+CMD ["sh", "-c", "http-server . -p 8080 & playwright test --config=playwright.config.js --output=playwright-report-videos"]
