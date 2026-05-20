@@ -30,3 +30,7 @@
 - Restructured project assets: moved `script.js` to `scripts/script.js` and `style.css` to `styles/style.css`.
 - Updated static asset references in `index.html` to match the new directory structure.
 - Rewrote `README.md` in English and aligned bilingual links and working test commands with the current project state.
+
+### Fixed
+
+- Fixed Docker-based Playwright test execution by aligning the image and test package versions to `v1.60.0-jammy` / `@playwright/test@1.60.0`, and setting `NODE_PATH` so `playwright.config.js` can resolve `@playwright/test` inside the container.

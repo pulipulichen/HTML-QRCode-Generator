@@ -1,7 +1,8 @@
-FROM mcr.microsoft.com/playwright:latest
+FROM mcr.microsoft.com/playwright:v1.60.0-jammy
 
 WORKDIR /app
 
-RUN npm install -g http-server @playwright/test
+RUN npm install -g http-server @playwright/test@1.60.0
+ENV NODE_PATH=/usr/lib/node_modules
 
 CMD ["sh", "-c", "http-server . -p 8080 & playwright test --config=playwright.config.js --output=playwright-report-videos"]
