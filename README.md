@@ -1,57 +1,47 @@
 # HTML-QRCode-Generator
 
-## 專案簡介 | Overview
+[English](./README.md) | [繁體中文](./README_zh_tw.md)
 
-**中文：**  
-這是一個純前端 QR Code 產生器，可將有效網址即時轉換為 QR Code 圖片。  
-目前支援中英雙語介面、點擊 QR Code 下載 PNG、以及網址歷史清單操作。
+## Overview
 
-**English:**  
-This is a frontend QR code generator that converts valid URLs into QR code images in real time.  
-It currently supports bilingual UI (English/Traditional Chinese), click-to-download PNG, and URL history actions.
+This project is a frontend QR code generator that converts valid URLs into QR code images.  
+It includes bilingual UI support (English and Traditional Chinese), click-to-download PNG output, URL history actions, and local preference persistence.
 
-## 功能特色 | Features
+## Features
 
-- **中文：** 輸入有效網址後（約 1 秒）自動產生 QR Code。  
-  **English:** Automatically generates a QR code for a valid URL (about 1 second after input).
-- **中文：** 點擊 QR Code 可下載 PNG 檔，檔名包含網域與時間戳。  
-  **English:** Click the QR code to download a PNG file named with hostname and timestamp.
-- **中文：** 提供網址歷史清單（最多 20 筆），可「使用 / 刪除 / 清空」。  
-  **English:** Provides URL history (up to 20 entries) with Use / Delete / Clear actions.
-- **中文：** 支援英文與繁體中文切換，並記住語言偏好。  
-  **English:** Supports English and Traditional Chinese, and remembers language preference.
-- **中文：** 會記住最後一次輸入的網址並於下次開啟時帶入。  
-  **English:** Remembers the last entered URL and restores it on next visit.
+- Automatically generates a QR code about 1 second after valid URL input.
+- Downloads the generated QR code as a PNG when the image is clicked.
+- Uses a filename format of `qrcode_<hostname>_<timestamp>.png` for downloads.
+- Provides URL history actions: Use, Delete, and Clear (up to 20 entries).
+- Supports language switching between English and Traditional Chinese.
+- Persists selected language and last input URL in `localStorage`.
 
-## 使用方式 | How to Use
+## Usage
 
-1. **中文：** 開啟網站頁面。  
-   **English:** Open the web page.
-2. **中文：** 在輸入欄位貼上或輸入有效網址（例如 `https://example.com`）。  
-   **English:** Paste or type a URL into the input field.
-3. **中文：** 等待自動產生 QR Code，點擊圖片即可下載。  
-   **English:** Wait for the QR code to appear, then click it to download.
-4. **中文：** 可在歷史清單重用網址，或切換介面語言。  
-   **English:** Reuse URLs from history or switch the interface language.
+1. Open `index.html` in a browser, or serve the project with a static file server.
+2. Enter a valid URL, for example `https://example.com`.
+3. Wait for the QR code to be generated automatically.
+4. Click the QR code image to download it as a PNG file.
+5. Reuse or manage past URLs from the history section.
 
-## 技術棧 | Tech Stack
+## Tech Stack
 
-- **HTML**：頁面結構與表單元件  
-  **HTML**: Page structure and form elements
-- **CSS**：版面配置與視覺樣式  
-  **CSS**: Layout and visual styling
-- **JavaScript (ES Modules)**：輸入處理、歷史清單、i18n 與下載流程  
-  **JavaScript (ES Modules)**: Input handling, history, i18n, and download flow
-- **qrcode-generator**：QR Code 產生函式庫（透過 CDN 載入）  
-  **qrcode-generator**: QR code generation library loaded via CDN
+- HTML
+- CSS
+- JavaScript (ES Modules)
+- [`qrcode-generator`](https://www.npmjs.com/package/qrcode-generator) via CDN
+- Playwright (for E2E tests)
+- Docker Compose (test runner workflow)
 
-## 測試 | Testing
+## Testing
 
-- **中文：** 專案包含 Playwright E2E 測試設定，基準網址為 `http://localhost:8080`。  
-  **English:** The project includes Playwright E2E configuration with `http://localhost:8080` as base URL.
-- **中文：** 可使用 `npm run test:e2e` 執行測試。  
-  **English:** Run tests with `npm run test:e2e`.
+- Run E2E tests directly with:
+  - `npm run test:e2e`
+- Run the Docker-based test workflow with:
+  - `npm start`
 
-## 專案連結 | Project Link
+The Playwright base URL is `http://localhost:8080`.
+
+## Project Link
 
 - GitHub: [https://github.com/pulipulichen/HTML-QRCode-Generator](https://github.com/pulipulichen/HTML-QRCode-Generator)
